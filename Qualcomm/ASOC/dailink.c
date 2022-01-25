@@ -1,7 +1,8 @@
 
 // DAI link定义
 // ref: kernel/msm-5.4/techpack/audio/asoc/sa6155.c
-// ref: kernel/msm-5.4/Documentation/sound/soc
+// ref: kernel/msm-5.4/Documentation/sound/soc/dpcm.rst，注意此文件中的代码用例与实际的已经不符.
+
 // 在高通平台dailink 分为FE dailink和BE dailink，
 // FE dailink是连接CPU和DSP的dai连接，实际上高通在cpu和dsp之间是sharemem的方式传输数据，所以FE dailink的codec dai并不存在，所以codec dai的名字用dummy
 // BE dailink是连接DSP和codec的dai连接，我们的项目中codec driver没按照高通的方式，所以BE dailink中的codec dai名字用stub占位
@@ -41,7 +42,7 @@ static struct snd_soc_dai_link msm_common_dai_links[] = {
 		.dpcm_playback = 1,  
 		.dpcm_capture = 1,  
 		.trigger = {SND_SOC_DPCM_TRIGGER_POST,
-			SND_SOC_DPCM_TRIGGER_POST},
+			SND_SOC_DPCM_TRIGGER_POST}, //这里指trigger DSP是在其他组件之前还是之后
 		.ignore_suspend = 1,  //在suspend时保持dai为激活状态
 		/* this dainlink has playback support */
 		.ignore_pmdown_time = 1,  // pmdown_time is ignored at stop
@@ -95,7 +96,7 @@ SND_SOC_DAILINK_DEF(multimedia1_platforms, { .name = "msm-pcm-dsp.0" })
 //分别是cpu组件，驱动在msm-dai-fe.c；codec组件；平台组件，驱动在 msm-pcm-q6-v2.c
 //dai link的三个要素:
 //cpu dai: 这里是fe dailink的cpu dai，cpu与adsp是share mem方式，并没有实际的物理dai接口,这里的MultiMedia1与pcm设备对应
-//codec dai: 用dummy，意思是没有codec dai，因为fe dailink中没有实际的dai，当然也没有codec dai
+//codec dai: 用dummy，因为BE是动态的，fe dailink没有实际的codec dai.
 //platform：提供数据的搬移功能，这里有3种参数，0代表普通模式，1代表ll(low latency)模式，2代表ull模式.
 
 
@@ -166,7 +167,7 @@ static struct snd_soc_dai_link msm_common_be_dai_links[] = {
 		.no_pcm = 1,  //be dailink不会创建pcm逻辑设备，FE dailink才会创建
 		.dpcm_playback = 1,  //动态pcm
 		.id = MSM_BACKEND_DAI_PRI_TDM_RX_0,  //55
-		.be_hw_params_fixup = msm_tdm_be_hw_params_fixup,
+		.be_hw_params_fixup = msm_tdm_be_hw_params_fixup,  //此处是machine driver按照FE hw params重新配置dai
 		.ops = &sa6155_tdm_be_ops,
 #ifndef CONFIG_SND_SUPPORT_AUDIO_S2R
 		.ignore_suspend = 1, //
@@ -209,7 +210,7 @@ SND_SOC_DAILINK_DEF(pri_tdm_rx_1_codecs, { .name = "msm-stub-codec.1", .dai_name
 SND_SOC_DAILINK_DEF(pri_tdm_rx_1_platforms, { .name = "msm-pcm-routing" }) 
 //dai link的三个要素:
 //cpu dai: 这里是be dailink的cpu dai，实际是dsp的dai，这里有实际的dai接口，36866代表tdm口的逻辑port
-//codec dai: 用stub，是占位的意思，在高通的demo项目中有用到实际的codec，这里就有实际的codec name
+//codec dai: 用stub，是占位的意思，因为我们的项目中codec是由外部管理的。在高通的demo项目中有用到实际的codec，就有实际的codec name
 //platform：提供pcm的路由功能。
 
 // BE DAI
@@ -260,3 +261,10 @@ static struct snd_soc_dai_driver msm_dai_q6_tdm_dai[] = {
 	},
 	// ...
 }	
+
+
+//Hostless PCM streams
+//有两种形式，一种是CODEC <-> CODEC 形式，
+//第二种是Hostless FE，这个是用来建立一个虚拟的path，不能读写数据
+
+
