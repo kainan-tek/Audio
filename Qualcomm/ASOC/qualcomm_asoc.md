@@ -11,7 +11,7 @@ ref: <https://segmentfault.com/a/1190000041093524>
 - Playback and record platform driver − /kernel/msm-5.4/techpack/audio/asoc/msm-pcm-q6-v2.c  //PCM module platform driver
 - Voice platform driver − kernel/msm-5.4/techpack/audio/asoc/msm-pcm-voice-v2.c              //PCM module platform driver
 - VoIP platform driver − kernel/msm-5.4/techpack/audio/asoc/msm-pcm-voip-v2.c                //PCM module platform driver
-- // ALSA codec drivers − /kernel/sound/soc/codecs/wcdXXXX.c, wcdXXXXtables.c, for example, WCD9330 files are wcd9330.c, wcd9330-tables.c.  
+- // ALSA codec drivers − /kernel/sound/soc/codecs/wcdXXXX.c, wcdXXXX-tables.c, for example, WCD9330 files are wcd9330.c, wcd9330-tables.c.  
 - // I2C/SLIMbus drivers − /kernel/drivers/slimbus/slim-msm-ctrl.c, slimbus.c  
 - ASM driver − kernel/msm-5.4/techpack/audio/dsp/q6asm.c
 - ADM driver − kernel/msm-5.4/techpack/audio/dsp/q6adm.c 
