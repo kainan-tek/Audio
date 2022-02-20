@@ -1,293 +1,228 @@
 ﻿<!DOCTYPE html>
-<html><head><meta charset="utf-8" /><meta name="Application" content="Mybase Desktop" /><title>qualcomm asoc</title>
-<style>
-a:hover {
-	cursor: pointer;
+<html>
+<head><style>
+/*
+Powered by Mybase Desktop 8.2 Beta-5
+Copyright 1998-2022 Wjj Software. All Rights Reserved.
+http://www.wjjsoft.com
+info@wjjsoft.com
+*/
+
+/********** nyf://appres?id=default-charformat-css-for-html **********/
+
+body, table{background-color: rgba(135, 206, 235, 0.392157); font-family: "Microsoft YaHei Mono"; font-size: 13.5pt}
+
+/********** nyf://localhost/${basetheme}/htmldoc_code.css **********/
+
+pre{
+	white-space: pre;
+	margin-right: 0.5em;
+	padding: 0px;
+	border: 1px solid #d6d6d6;
+	border-radius: 6px;
+}
+code{
+	font-family: Monaco, Consolas, Monospace, Courier;
+	white-space: pre-wrap;
+	word-break: break-all;
+	border-radius: 6px;
 }
 
-a:hover {
+/********** nyf://localhost/${basetheme}/htmldoc_table.css **********/
+
+table{
+	padding: 0;
+	border-collapse: collapse;
+	border: 1px solid gray;
+	border-width: 3px 1px 3px 1px;
+}
+tr{
+	margin: 0px;
+	padding: 0px;
+}
+tr:nth-child(2n){
+	background-color: #f8f8f8;
+	background-color: rgba(135, 206, 235, 0.392157);
+}
+th{
+	padding: 2px 5px;
+	font-weight: bold;
+	text-align: center;
+	color: #e9e9e9;
+	background-color: lightslategrey;
+}
+td{
+	padding: 5px;
+	border: 1px solid grey;
+}
+
+/********** nyf://appres?id=default-paragraph-css-for-html **********/
+
+/********** nyf://localhost/${basetheme}/htmldoc.css **********/
+
+body{
+	background-color: transparent;
+	background-color: rgba(135, 206, 235, 0.392157);
+	background-color: #87ceeb;
+	background-color: rgba(135, 206, 235, 0.392157);
+}
+body, p, div, li, label, table, th, td, blockquote, h1, h2, h3, h4, h5, h6, h7, dd, dl, dt, label, pre, code{
+}
+::selection{
+}
+img{
+	max-width: 100%;
+}
+
+/********** nyf://localhost/${basetheme}/htmldoc_anchor.css **********/
+
+a{
 	text-decoration: none;
-	background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyMCA0Jz4KPHBhdGggZmlsbD0nbm9uZScgc3Ryb2tlPSdibHVlJyBkPSdNMCAzLjVjNSAwIDUtMyAxMC0zczUgMyAxMCAzIDUtMyAxMC0zIDUgMyAxMCAzJy8+Cjwvc3ZnPgoK") repeat-x 0 100%;
+	color: #0366e6;
+}
+a:hover {
+	cursor: pointer;
+	text-decoration: none;
+	background: url(nyf://appres?id=icon-by-key&ico=Img.Link.Wave&type=svg) repeat-x 0 100%;
 	background-size: 20px auto;
 	animation: wave0 1s 10 linear;
 }
-
 @keyframes wave0 {
 	0% { background-position: 0 100%; }
 	100% { background-position: -20px 100%; }
 }
 
-
-
-pre{
-	border: 4px solid #d6d6d6;
-	border-radius: 7px;
-	padding: 0px;
-	margin-right: 0.5em;
-}
-
-code{
-	font-family: Monaco, Consolas, Monospace, Courier;
-	border-radius: 4px;
-}
-
-.CLS_InlineCode{
-	background-color: DarkCyan;
-	color: white;
-	padding: 2px 4px;
-	margin: 0px 3px;
-	font-family: Monaco, Consolas, Monospace, Courier;
-}
-
-.CLS_LiteralDollars{
-	background-color: default;
-	padding: default;
-	margin: default;
-	border-radius: 0;
-}
-
-
-
-table{
-	border-collapse: collapse;
-	border: 1px solid gray;
-	border-width: 2px 1px 2px 1px;
-	margin-right: 1em;
-}
-
-th{
-	border: 1px solid gray;
-	padding: 4px;
-	background-color: #ddd;
-}
-
-td{
-	border: 1px solid gray;
-	padding: 4px;
-}
-
-tr{
-	background-color: #f0f0f0;
-}
-
-tr:nth-child(2n){
-	background-color: #f8f8f8;
-}
-
-
+/********** nyf://localhost/${basetheme}/htmldoc_thread.css **********/
 
 .CLS_THREAD {
-	color: blue;
-	background-color: #e8e8e8;
+	color: #0366e6;
 	
 }
-
 .CLS_THREAD:hover {
 	cursor: pointer;
 }
-
 .CLS_THREAD:hover {
 	text-decoration: none;
-	background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyMCA0Jz4KPHBhdGggZmlsbD0nbm9uZScgc3Ryb2tlPSdibHVlJyBkPSdNMCAzLjVjNSAwIDUtMyAxMC0zczUgMyAxMCAzIDUtMyAxMC0zIDUgMyAxMCAzJy8+Cjwvc3ZnPgoK") repeat-x 0 100%;
+	background: url(nyf://appres?id=icon-by-key&ico=Img.Link.Wave&type=svg) repeat-x 0 100%;
 	background-size: 20px auto;
 	animation: wave0 1s infinite linear;
 }
 
+/********** nyf://localhost/${basetheme}/htmldoc_toc.css **********/
 
-
-#ID_NYF_TOC_PANE {
+div#ID_NYF_TOC_PANE *{
+	margin: 0px;
+	padding: 0px;
+}
+div#ID_NYF_TOC_PANE {
 	margin: 0px;
 	padding: 0px;
 	border: 1px solid black;
-	border-radius: 3px;
+	border: 1px solid #6ba3bb;
+	border: 1px solid #6ba3bb;
+	border-radius: 6px;
 	background-color: lightyellow;
-	opacity: 0.8;
+	background-color: #8cd6f4;
 }
-
+div#ID_NYF_TOC_PANE a:hover {
+	color: crimson;
+}
+div#ID_NYF_TOC_TITLEBAR{
+	border-bottom: 1px solid lightgrey;
+	border-bottom: 1px solid #6ba3bb;
+	border-bottom: 1px solid #6ba3bb;
+}
+div#ID_NYF_TOC_TITLETEXT{
+	padding: 6px 6px 6px 16px;
+	font-weight: bold;
+	font-size: large;
+}
+div#ID_NYF_TOC_LISTVIEW{
+	padding-right: 0.5em;
+	margin: 0.5em 0;
+}
+img#ID_NYF_TOC_BTNCLOSE{
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+	padding: 2px;
+	margin: 3px;
+}
 .CLS_NYF_TOC_LISTITEM {
 }
-
 .CLS_NYF_TOC_HREF {
 	font-size: small;
 	text-decoration: underline;
 	line-height: 150%;
 }
 
-
-
-body, table{background-color: rgba(135, 206, 235, 0.313725); font-family: "Microsoft YaHei Mono"; font-size: 12pt}
-
-
-
-body,table,code {
-    font-family: "Microsoft YaHei Mono", "Consolas", "Courier";
-    font-size: 13pt;
-}
-
-a {
-	color: #0366e6;
-	text-decoration: none;
-}
-
-a:hover {
-	
-}
-
-blockquote {
-	margin-left: 1em;
-	border-left: 6px solid #ddd;
-	padding-left: 3px;
-	color: #777;
-}
-
-hr {
-	border: 0;
-	border-bottom: 1px solid #ddd;
-}
-
-pre {
-
-}
-
-code {
-
-}
-
-p {
-
-}
-
-div {
-
-}
-
-h1 {
-
-}
-
-h2 {
-
-}
-
-h3 {
-
-}
-
-h4 {
-
-}
-
-h5 {
-
-}
-
-h6 {
-
-}
-
-table{
-
-}
-
-th{
-
-}
-
-td{
-
-}
-
-tr{
-
-}
-
-tr:nth-child(2n){
-
-}
-
-
+/********** nyf://localhost/${scripts}/hljs/styles/${SyntaxHighlightStyleName}.css **********/
 
 .hljs {
+  color: #a9b7c6;
+  background: #282b2e;
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  color: #abb2bf;
-  background: #282c34;
 }
-
-.hljs-comment,
-.hljs-quote {
-  color: #5c6370;
-  font-style: italic;
+.hljs-number,
+.hljs-literal,
+.hljs-symbol,
+.hljs-bullet {
+  color: #6897BB;
 }
-
-.hljs-doctag,
 .hljs-keyword,
-.hljs-formula {
-  color: #c678dd;
-}
-
-.hljs-section,
-.hljs-name,
 .hljs-selector-tag,
-.hljs-deletion,
-.hljs-subst {
-  color: #e06c75;
+.hljs-deletion {
+  color: #cc7832;
 }
-
-.hljs-literal {
-  color: #56b6c2;
-}
-
-.hljs-string,
-.hljs-regexp,
-.hljs-addition,
-.hljs-attribute,
-.hljs-meta-string {
-  color: #98c379;
-}
-
-.hljs-built_in,
-.hljs-class .hljs-title {
-  color: #e6c07b;
-}
-
-.hljs-attr,
 .hljs-variable,
 .hljs-template-variable,
-.hljs-type,
-.hljs-selector-class,
-.hljs-selector-attr,
-.hljs-selector-pseudo,
-.hljs-number {
-  color: #d19a66;
+.hljs-link {
+  color: #629755;
 }
-
-.hljs-symbol,
-.hljs-bullet,
-.hljs-link,
-.hljs-meta,
+.hljs-comment,
+.hljs-quote {
+  color: #808080;
+}
+.hljs-meta {
+  color: #bbb529;
+}
+.hljs-string,
+.hljs-attribute,
+.hljs-addition {
+  color: #6A8759;
+}
+.hljs-section,
+.hljs-title,
+.hljs-type {
+  color: #ffc66d;
+}
+.hljs-name,
 .hljs-selector-id,
-.hljs-title {
-  color: #61aeee;
+.hljs-selector-class {
+  color: #e8bf6a;
 }
-
 .hljs-emphasis {
   font-style: italic;
 }
-
 .hljs-strong {
   font-weight: bold;
 }
 
-.hljs-link {
-  text-decoration: underline;
-}
-</style>
-</head>&nbsp; &nbsp; &nbsp; &nbsp; <body>&nbsp; &nbsp; &nbsp; &nbsp; 
+/********** fixes/tweaks 2022.1.19 **********/
+
+a{margin-left: 4px; margin-right: 4px;}
+a:hover{text-decoration: underline;}
+hr{border: 0px; height: 2px; background: gray;}
+
+</style></head>
+<body>
+&nbsp; &nbsp; &nbsp; &nbsp; 
 <article>
-	<h2 id="qualcommasoc">Qualcomm ASOC
-	</h2>
+	<hr />
+	<h3 id="asoccodepath">ASOC code path
+	</h3>
 	<p>ref: <a href="https://segmentfault.com/a/1190000041093524">https://segmentfault.com/a/1190000041093524</a>
 	</p>
 	<ul>
@@ -297,11 +232,13 @@ tr:nth-child(2n){
 		</li>
 		<li>Back-end CPU driver − /kernel/msm-5.4/techpack/audio/asoc/msm-dai-q6-v2.c&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //MSM DSP DAI driver（BE DAI）
 		</li>
-		<li>Playback and record platform driver − /kernel/msm-5.4/techpack/audio/asoc/msm-pcm-q6-v2.c&nbsp; //PCM module platform driver
-		</li>
 		<li>Stream routing platform driver − /kernel/msm-5.4/techpack/audio/asoc/msm-pcm-routing-v2.c&nbsp; //MSM routing platform driver
 		</li>
-		<li>Voice and VoIP platform driver − kernel/msm-5.4/techpack/audio/asoc/msm-pcm-voice-v2.c and msm-pcm-voip-v2.c&nbsp; //PCM module platform driver
+		<li>Playback and record platform driver − /kernel/msm-5.4/techpack/audio/asoc/msm-pcm-q6-v2.c&nbsp; //PCM module platform driver
+		</li>
+		<li>Voice platform driver − kernel/msm-5.4/techpack/audio/asoc/msm-pcm-voice-v2.c&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //PCM module platform driver
+		</li>
+		<li>VoIP platform driver − kernel/msm-5.4/techpack/audio/asoc/msm-pcm-voip-v2.c&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //PCM module platform driver
 		</li>
 		<li>// ALSA codec drivers − /kernel/sound/soc/codecs/wcdXXXX.c, wcdXXXXtables.c, for example, WCD9330 files are wcd9330.c, wcd9330-tables.c.&nbsp; 
 		</li>
@@ -318,6 +255,7 @@ tr:nth-child(2n){
 		<li>// Platform-specific machine driver − msmXXXX.c or apqXXXX.c where XXXX is the chipset version; for example, MSM8960 would be msm8960.c.
 		</li>
 	</ul>
+	<hr />
 	<h3 id="asocmachinedriver">ASOC Machine driver
 	</h3>
 	<p>ref: kernel/msm-5.4/techpack/audio/asoc/sa6155.c
@@ -498,6 +436,7 @@ int soc_new_pcm(<span class="hljs-class"><span class="hljs-keyword">struct</span
     <span class="hljs-keyword">if</span> (capture)
         snd_pcm_set_ops(pcm, SNDRV_PCM_STREAM_CAPTURE, &amp;rtd-&gt;ops);
 </code></pre>
+	<hr />
 	<h3 id="asocplatformdriver">ASOC Platform driver
 	</h3>
 	<p>ref: kernel/msm-5.4/sound/soc/soc-core.c<br />platform driver应该只是注册一些结构函数指针，没有匹配设备树调用soc_probe，相应的snd_soc_register_card函数应该是在machine driver匹配时调用的&nbsp; TBD&nbsp; 
@@ -536,7 +475,8 @@ module_init(snd_soc_init);
 <span class="hljs-comment">//            ret = snd_soc_instantiate_card(card);</span>
 <span class="hljs-comment">//                ...</span>
 </code></pre>
-	<h3 id="pcmopencallstack">PCM open call stack
+	<hr />
+	<h3 id="pcmopenwritecallstack">PCM open &amp; write call stack
 	</h3>
 	<pre>
 <code class="hljs rust">声卡
@@ -546,6 +486,7 @@ module_init(snd_soc_init);
       --&gt; 后端所有组件打开
         --&gt; 前端所有组件打开 (按照fe dai, codec组件，cpu组件顺序)
 
+<span class="hljs-comment">// 似乎没有用到这里的snd_open</span>
 (kernel/msm-<span class="hljs-number">5.4</span>/sound/core/sound.c)
 <span class="hljs-keyword">static</span> <span class="hljs-keyword">const</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">file_operations</span></span> snd_fops =
 {
@@ -586,61 +527,149 @@ module_init(snd_soc_init);
     }
 };
 
+<span class="hljs-comment">// tinyalsa open</span>
+<span class="hljs-comment">// PcmTinyAlsaWrapper是我们对tinyalsa的封装</span>
+vendor/harman/hardware/audio/audiohal/harman_audio_router/Modules/src/PcmTinyAlsaWrapper.cpp
+int PcmTinyAlsaWrapper::openPcmNode()
+    external/tinyalsa/pcm.c
+    pcm_open(mCardID, mDeviceID, flags, &amp;mConfig);
+        pcm-&gt;fd = open(<span class="hljs-function"><span class="hljs-keyword">fn</span>, <span class="hljs-title">O_RDWR</span>|<span class="hljs-title">O_NONBLOCK</span>);  //打开底层设备节点
+            <span class="hljs-title">kernel</span>/<span class="hljs-title">msm</span>-5.4/<span class="hljs-title">sound</span>/<span class="hljs-title">core</span>/<span class="hljs-title">pcm_native</span>.<span class="hljs-title">c</span>
+            <span class="hljs-title">static</span> <span class="hljs-title">int</span> <span class="hljs-title">snd_pcm_playback_open</span></span>(<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">inode</span></span> *inode, <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">file</span></span> *file)
+        ioctl(pcm-&gt;fd, SNDRV_PCM_IOCTL_INFO, &amp;info)) <span class="hljs-comment">//get info</span>
+        ioctl(pcm-&gt;fd, SNDRV_PCM_IOCTL_HW_PARAMS, &amp;params) <span class="hljs-comment">//将硬件参数参数写到设备节点中</span>
+        pcm-&gt;mmap_buffer = mmap(NULL, pcm_frames_to_bytes(pcm, pcm-&gt;buffer_size), PROT_READ | PROT_WRITE, MAP_FILE | MAP_SHARED, pcm-&gt;fd, <span class="hljs-number">0</span>);  <span class="hljs-comment">//将pcm-&gt;buffer_size映射进内存</span>
+        ioctl(pcm-&gt;fd, SNDRV_PCM_IOCTL_SW_PARAMS, &amp;sparams) <span class="hljs-comment">//将软件参数写入到底层设备节点中</span>
 
-<span class="hljs-comment">// 上层应用是什么时间以什么api通过调用linux文件操作接口调用到snd_open的？？？  TBD</span>
-(kernel/msm-<span class="hljs-number">5.4</span>/sound/core/sound.c)
-snd_open
-    err = file-&gt;f_op-&gt;open(inode, file);
-    (kernel/msm-<span class="hljs-number">5.4</span>/sound/core/pcm_native.c)
-    (call: <span class="hljs-keyword">static</span> int snd_pcm_playback_open(<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">inode</span></span> *inode, <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">file</span></span> *file))
-            err = snd_pcm_open(file, pcm, SNDRV_PCM_STREAM_PLAYBACK);
-                err = snd_card_file_add(pcm-&gt;card, file);
-                err = snd_pcm_open_file(file, pcm, stream);
-                    err = snd_pcm_open_substream(pcm, stream, file, &amp;substream);
-                        err = snd_pcm_attach_substream(pcm, stream, file, &amp;substream); <span class="hljs-comment">//获取pcm的substream</span>
-                        err = snd_pcm_hw_constraints_init(substream);  <span class="hljs-comment">//初始化pcm硬件约束</span>
-                        (kernel/msm-<span class="hljs-number">5.4</span>/sound/soc/soc-pcm.c)
-                        <span class="hljs-keyword">if</span> ((err = substream-&gt;ops-&gt;open(substream)) &lt; <span class="hljs-number">0</span>)  <span class="hljs-comment">//调用substream的回调函数open,注册声卡时已添加</span>
-                        (call: <span class="hljs-keyword">static</span> int dpcm_fe_dai_open(<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">snd_pcm_substream</span></span> *fe_substream))
-                            ret = dpcm_path_get(fe, stream, &amp;list);  <span class="hljs-comment">//找到所有已经激活的链路（widgets）</span>
-                            dpcm_process_paths(fe, stream, &amp;list, <span class="hljs-number">1</span>); <span class="hljs-comment">//calculate valid and active FE &lt;-&gt; BE dpcms</span>
-                            ret = dpcm_fe_dai_startup(fe_substream);
-                                dpcm_set_fe_update_state(fe, stream, SND_SOC_DPCM_UPDATE_FE);
-                                ret = dpcm_be_dai_startup(fe, fe_substream-&gt;stream); <span class="hljs-comment">// BE组件打开</span>
-                                    soc_pcm_open() <span class="hljs-comment">// 同下fe打开</span>
-                                ret = soc_pcm_open(fe_substream);  <span class="hljs-comment">//start the DAI frontend</span>
-                                    pinctrl_pm_select_default_state(cpu_dai-&gt;dev);
-                                    pinctrl_pm_select_default_state(codec_dai-&gt;dev);
-                                    snd_soc_set_runtime_hwparams(substream, &amp;no_host_hardware);
-                                    ret = snd_soc_dai_startup(cpu_dai, substream);  <span class="hljs-comment">//startup the audio subsystem</span>
-                                    ret = soc_pcm_components_open(substream, &amp;component); <span class="hljs-comment">// fe dai, codec组件，cpu组件都打开</span>
-                                        ret = snd_soc_component_module_get_when_open(component);
-                                        ret = snd_soc_component_open(component, substream);
-                                            component-&gt;driver-&gt;ops-&gt;open(substream); <span class="hljs-comment">//调用各个组件的open函数</span>
-                                    ret = snd_soc_dai_startup(codec_dai, substream); <span class="hljs-comment">//codec dai的startup函数</span>
-                                    ret = rtd-&gt;dai_link-&gt;ops-&gt;startup(substream);
-                                    snd_soc_runtime_activate(rtd, substream-&gt;stream);
-                                dpcm_set_fe_runtime(fe_substream);
-                                snd_pcm_limit_hw_rates(runtime);
-                                ret = dpcm_apply_symmetry(fe_substream, stream);
-                            dpcm_clear_pending_state(fe, stream);
-                            dpcm_path_put(&amp;list);
-                        err = snd_pcm_hw_constraints_complete(substream);  <span class="hljs-comment">//设置pcm硬件约束</span>
-                    pcm_file-&gt;substream = substream;  <span class="hljs-comment">//将打开的substream保存在pcm_file中</span>
-                    file-&gt;private_data = pcm_file;   <span class="hljs-comment">//file获得打开的substream</span>
-</code></pre>
-	<p>audiorouter call stack<br />ref: vendor/harman/hardware/audio/audiohal/harman_audio_router/Modules/src/PcmAlsaWrapper.cpp
-	</p>
-	<pre>
-<code class="hljs awk">(vendor<span class="hljs-regexp">/harman/</span>hardware<span class="hljs-regexp">/audio/</span>audiohal<span class="hljs-regexp">/harman_audio_router/</span>Modules<span class="hljs-regexp">/src/</span>PcmAlsaWrapper.cpp)
-PcmAlsaWrapper::openPcmNode()
-    hwCfgWrapper-&gt;setCmd(HW_CFG_ENABLE, mName,(void *)&amp;mPcmParams);   <span class="hljs-regexp">//</span> 这里是设置adsp的参数
+<span class="hljs-comment">// tinyalsa open，接snd_pcm_playback_open</span>
+kernel/msm-<span class="hljs-number">5.4</span>/sound/core/pcm_native.c
+<span class="hljs-keyword">static</span> int snd_pcm_playback_open(<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">inode</span></span> *inode, <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">file</span></span> *file)
+    err = snd_pcm_open(file, pcm, SNDRV_PCM_STREAM_PLAYBACK);
+        err = snd_card_file_add(pcm-&gt;card, file);
+        err = snd_pcm_open_file(file, pcm, stream);
+            err = snd_pcm_open_substream(pcm, stream, file, &amp;substream);
+                err = snd_pcm_attach_substream(pcm, stream, file, &amp;substream); <span class="hljs-comment">//获取pcm的substream</span>
+                err = snd_pcm_hw_constraints_init(substream);  <span class="hljs-comment">//初始化pcm硬件约束</span>
+                (kernel/msm-<span class="hljs-number">5.4</span>/sound/soc/soc-pcm.c)
+                <span class="hljs-keyword">if</span> ((err = substream-&gt;ops-&gt;open(substream)) &lt; <span class="hljs-number">0</span>)  <span class="hljs-comment">//调用substream的回调函数open,注册声卡时已添加</span>
+                (call: <span class="hljs-keyword">static</span> int dpcm_fe_dai_open(<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">snd_pcm_substream</span></span> *fe_substream))
+                    ret = dpcm_path_get(fe, stream, &amp;list);  <span class="hljs-comment">//找到所有已经激活的链路（widgets）</span>
+                    dpcm_process_paths(fe, stream, &amp;list, <span class="hljs-number">1</span>); <span class="hljs-comment">//calculate valid and active FE &lt;-&gt; BE dpcms</span>
+                    ret = dpcm_fe_dai_startup(fe_substream);
+                        dpcm_set_fe_update_state(fe, stream, SND_SOC_DPCM_UPDATE_FE);
+                        ret = dpcm_be_dai_startup(fe, fe_substream-&gt;stream); <span class="hljs-comment">// BE组件打开</span>
+                            soc_pcm_open() <span class="hljs-comment">// 同下fe打开</span>
+                        ret = soc_pcm_open(fe_substream);  <span class="hljs-comment">//start the DAI frontend</span>
+                            pinctrl_pm_select_default_state(cpu_dai-&gt;dev);
+                            pinctrl_pm_select_default_state(codec_dai-&gt;dev);
+                            snd_soc_set_runtime_hwparams(substream, &amp;no_host_hardware);
+                            ret = snd_soc_dai_startup(cpu_dai, substream);  <span class="hljs-comment">//startup the audio subsystem</span>
+                            ret = soc_pcm_components_open(substream, &amp;component); <span class="hljs-comment">//fe dai,codec组件，cpu组件都打开</span>
+                                ret = snd_soc_component_module_get_when_open(component);
+                                ret = snd_soc_component_open(component, substream);
+                                    component-&gt;driver-&gt;ops-&gt;open(substream); <span class="hljs-comment">//调用各个组件的open函数</span>
+                                        msm_pcm_open(<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">snd_pcm_substream</span></span> *substream)
+                                            runtime-&gt;hw = msm_pcm_hardware_playback;  <span class="hljs-comment">// if music, msm-pcm-q6-v2.c</span>
+                                            runtime-&gt;hw = msm_pcm_hardware_capture;   <span class="hljs-comment">// if music, msm-pcm-q6-v2.c</span>
+                                            runtime-&gt;hw = msm_pcm_hardware;  <span class="hljs-comment">// if voice, msm-pcm-voice-v2.c</span>
+                                            snd_soc_set_runtime_hwparams(substream, &amp;dummy_pcm_hardware); <span class="hljs-comment">//msm-pcm-loopback-v2.c</span>
+                            ret = snd_soc_dai_startup(codec_dai, substream); <span class="hljs-comment">//codec dai的startup函数</span>
+                            ret = rtd-&gt;dai_link-&gt;ops-&gt;startup(substream);
+                            snd_soc_runtime_activate(rtd, substream-&gt;stream);
+                        dpcm_set_fe_runtime(fe_substream);
+                        snd_pcm_limit_hw_rates(runtime);
+                        ret = dpcm_apply_symmetry(fe_substream, stream);
+                    dpcm_clear_pending_state(fe, stream);
+                    dpcm_path_put(&amp;list);
+                err = snd_pcm_hw_constraints_complete(substream);  <span class="hljs-comment">//设置pcm硬件约束</span>
+            pcm_file-&gt;substream = substream;  <span class="hljs-comment">//将打开的substream保存在pcm_file中</span>
+            file-&gt;private_data = pcm_file;   <span class="hljs-comment">//file获得打开的substream</span>
 
-    (vendor<span class="hljs-regexp">/harman/</span>hardware<span class="hljs-regexp">/audio/</span>external<span class="hljs-regexp">/alsa-lib/</span>src<span class="hljs-regexp">/pcm/</span>pcm.c)  <span class="hljs-regexp">//</span> 
-    (kernel<span class="hljs-regexp">/msm-5.4/</span>sound<span class="hljs-regexp">/core/</span>pcm_native.c) <span class="hljs-regexp">//</span>
-    snd_pcm_open(&amp;mPcmHandle, mName.c_str(), SND_PCM_STREAM_PLAYBACK, <span class="hljs-number">0</span>)  <span class="hljs-regexp">//</span>这里的open好像没有调用到sound.c中的snd_pcm_open，  TBD
 
-    
+
+<span class="hljs-comment">// tinyalsa write </span>
+<span class="hljs-comment">// PcmTinyAlsaWrapper是我们对tinyalsa的封装</span>
+vendor/harman/hardware/audio/audiohal/harman_audio_router/Modules/src/PcmTinyAlsaWrapper.cpp
+PcmTinyAlsaWrapper::writeFrame(AudioPort* port, PAF_AudioFrame* data)
+    external/tinyalsa/pcm.c
+    pcm_mmap_write(mPcmHandle, static_cast&lt;<span class="hljs-keyword">const</span> void*&gt;(pcmData), mAudioParam.convertFramesToBytes(period_size));
+    pcm_write(mPcmHandle, static_cast&lt;<span class="hljs-keyword">const</span> void*&gt;(pcmData), mAudioParam.convertFramesToBytes(period_size));
+        ioctl(pcm-&gt;fd, SNDRV_PCM_IOCTL_WRITEI_FRAMES, &amp;x)
+        kernel/msm-<span class="hljs-number">5.4</span>/sound/core/pcm_native.c
+        snd_pcm_ioctl(<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">file</span></span> *file, unsigned int cmd, unsigned long arg)
+            snd_pcm_common_ioctl(file, pcm_file-&gt;substream, cmd, (void __user *)arg);
+                snd_pcm_xferi_frames_ioctl(substream, arg);
+                    copy_from_user(&amp;xferi, _xferi, sizeof(xferi))
+                    snd_pcm_lib_write(substream, xferi.buf, xferi.frames);
+                        kernel/msm-<span class="hljs-number">5.4</span>/sound/core/pcm_lib.c
+                        __snd_pcm_lib_xfer(substream, (void __force *)buf, <span class="hljs-literal">true</span>, frames, <span class="hljs-literal">false</span>);
+                            transfer = substream-&gt;ops-&gt;copy_kernel  <span class="hljs-comment">//拷贝数据,将数据拷贝到dai FIFO？</span>
+                            transfer = (pcm_transfer_f)substream-&gt;ops-&gt;copy_user;
+                            <span class="hljs-comment">// 这里到底是不是调用了msm_pcm_copy？ msm_pcm_copy中会调用q6asm_write往dsp写数据</span>
+                            kernel/msm-<span class="hljs-number">5.4</span>/sound/core/pcm_native.c
+                            snd_pcm_start(substream);
+                                snd_pcm_action(&amp;snd_pcm_action_start, substream, SNDRV_PCM_STATE_RUNNING);
+                                    snd_pcm_action_group(ops, substream, state, <span class="hljs-number">1</span>);
+                                    snd_pcm_action_single(ops, substream, state);
+                                        res = ops-&gt;pre_action(substream, state);
+                                        res = ops-&gt;do_action(substream, state);
+                                        snd_pcm_do_start(<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">snd_pcm_substream</span></span> *substream, int state)
+                                            substream-&gt;ops-&gt;trigger(substream, SNDRV_PCM_TRIGGER_START); <span class="hljs-comment">//触发数据拷贝</span>
+                                            <span class="hljs-comment">// 这里到底是不是调用了msm_pcm_trigger？</span>
+
+
+
+<span class="hljs-comment">// 不确定substream-&gt;ops-&gt;copy_user调用的是不是如下函数  --TBD</span>
+<span class="hljs-comment">// 此函数是应该是发送音频数据</span>
+<span class="hljs-keyword">static</span> int msm_pcm_copy(<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">snd_pcm_substream</span></span> *substream, int a, unsigned long hwoff, void __user *buf, unsigned long fbytes)
+    ret = msm_pcm_capture_copy(substream, a, hwoff, buf, fbytes); <span class="hljs-comment">//substream-&gt;stream == SNDRV_PCM_STREAM_CAPTURE</span>
+    ret = msm_pcm_playback_copy(substream, a, hwoff, buf, fbytes); <span class="hljs-comment">//substream-&gt;stream == SNDRV_PCM_STREAM_PLAYBACK</span>
+        copy_from_user(bufptr, buf, xfer)  <span class="hljs-comment">//将数据拷贝到内核空间audio_client对应的buffer</span>
+        ret = q6asm_write(prtd-&gt;audio_client, xfer, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, NO_TIMESTAMP);
+            q6asm_update_token(&amp;write.hdr.token,
+                   <span class="hljs-number">0</span>, <span class="hljs-comment">/* Session ID is NA */</span>
+                   <span class="hljs-number">0</span>, <span class="hljs-comment">/* Stream ID is NA */</span>
+                   port-&gt;dsp_buf,
+                   <span class="hljs-number">0</span>, <span class="hljs-comment">/* Direction flag is NA */</span>
+                   NO_WAIT_CMD);
+            rc = apr_send_pkt(ac-&gt;apr, (uint32_t *) &amp;write);
+                rc = apr_tal_write(clnt-&gt;handle, buf, (<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">apr_pkt_priv</span></span> *)&amp;svc-&gt;pkt_owner, hdr-&gt;pkt_size); <span class="hljs-comment">//native</span>
+                ret = habmm_socket_send(hab_handle_tx, (void *)&amp;apr_tx_buf, apr_send_len, <span class="hljs-number">0</span>);  <span class="hljs-comment">//vm,qnx hypervisor</span>
+
+
+<span class="hljs-comment">// 不确定substream-&gt;ops-&gt;trigger调用的是不是如下函数  --TBD</span>
+<span class="hljs-comment">// 此函数应该是发送操作码命令</span>
+kernel/msm-<span class="hljs-number">5.4</span>/techpack/audio/asoc/msm-pcm-q6-v2.c
+kernel/msm-<span class="hljs-number">5.4</span>/techpack/audio/asoc/msm-pcm-voice-v2.c
+kernel/msm-<span class="hljs-number">5.4</span>/techpack/audio/asoc/msm-pcm-voip-v2.c
+kernel/msm-<span class="hljs-number">5.4</span>/techpack/audio/asoc/msm-pcm-loopback-v2.c
+kernel/msm-<span class="hljs-number">5.4</span>/techpack/audio/asoc/msm-pcm-q6-noirq.c
+<span class="hljs-keyword">static</span> int msm_pcm_trigger(<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">snd_pcm_substream</span></span> *substream, int cmd)
+    kernel/msm-<span class="hljs-number">5.4</span>/techpack/audio/dsp/q6asm.c    <span class="hljs-comment">//项目用到的目录</span>
+    kernel/msm-<span class="hljs-number">5.4</span>/sound/soc/qcom/qdsp6/q6asm.c  <span class="hljs-comment">//这个应该是原始的目录</span>
+    ret = q6asm_run_nowait(prtd-&gt;audio_client, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+        kernel/msm-<span class="hljs-number">5.4</span>/techpack/audio/dsp/q6asm.c
+        __q6asm_cmd_nowait(ac, cmd, ac-&gt;stream_id);
+            q6asm_update_token(&amp;hdr.token, ac-&gt;session, stream_id, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, NO_WAIT_CMD);
+            kernel/msm-<span class="hljs-number">5.4</span>/techpack/audio/ipc/apr_vm.c
+            rc = apr_send_pkt(ac-&gt;apr, (uint32_t *) &amp;hdr);
+                rc = apr_tal_write(clnt-&gt;handle, buf, (<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">apr_pkt_priv</span></span> *)&amp;svc-&gt;pkt_owner, hdr-&gt;pkt_size); <span class="hljs-comment">//native</span>
+                ret = habmm_socket_send(hab_handle_tx, (void *)&amp;apr_tx_buf, apr_send_len, <span class="hljs-number">0</span>);  <span class="hljs-comment">//vm,qnx hypervisor</span>
+
+
+
+<span class="hljs-comment">// 不确定substream-&gt;ops-&gt;trigger调用的是不是如下函数  --TBD</span>
+substream-&gt;ops-&gt;trigger(substream, SNDRV_PCM_TRIGGER_START);
+    dpcm_fe_dai_trigger(<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">snd_pcm_substream</span></span> *substream, int cmd)
+        dpcm_fe_dai_do_trigger(substream, cmd);
+            dpcm_dai_trigger_fe_be(substream, cmd, <span class="hljs-literal">true</span>);
+                ret = soc_pcm_trigger(substream, cmd);
+                    ret = snd_soc_dai_trigger(codec_dai, substream, cmd);
+                    ret = snd_soc_component_trigger(component, substream, cmd);
+                    ret = snd_soc_dai_trigger(cpu_dai, substream, cmd);
+                ret = dpcm_be_dai_trigger(fe, substream-&gt;stream, cmd);
+                                        
+                    
 </code></pre>
 	<p>// need to analyze<br />kernel/msm-5.4/techpack/audio/asoc/msm-pcm-q6-v2.c
 	</p>
@@ -660,4 +689,8 @@ PcmAlsaWrapper::openPcmNode()
     .mmap        = msm_pcm_mmap,
 };
 </code></pre>
-</article>&nbsp; &nbsp; &nbsp; &nbsp; </body></html>
+</article>&nbsp; &nbsp; &nbsp; &nbsp;
+<footer style="font-size: small; font-style: italic; text-align: right; margin-top: 4em; padding-top: 4px; border-top: 2px solid gray;">
+Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=html_export">Mybase Desktop 8.2 Beta-5</a>
+</footer>
+</body></html>
