@@ -297,10 +297,12 @@ const struct file_operations snd_pcm_f_ops[2] = {
 // PcmTinyAlsaWrapper是我们对tinyalsa的封装
 vendor/harman/hardware/audio/audiohal/harman_audio_router/Modules/src/PcmTinyAlsaWrapper.cpp
 int PcmTinyAlsaWrapper::openPcmNode()
-	external/tinyalsa/pcm.c
+	external/tinyalsa/pcm.c  //这个是原始的位置
+	vendor/qcom/opensource/tinyalsa/pcm.c  //我们的项目用的
+	vendor/harman/hardware/audio/external/alsa-lib/src/pcm/pcm.c //如果是用alsa，则调用alsalib中的函数
 	pcm_open(mCardID, mDeviceID, flags, &mConfig);
 		pcm->fd = open(fn, O_RDWR|O_NONBLOCK);  //打开底层设备节点
-			kernel/msm-5.4/sound/core/pcm_native.c
+			kernel/msm-5.4/sound/core/pcm_native.c  // alsa driver
 			static int snd_pcm_playback_open(struct inode *inode, struct file *file)
 		ioctl(pcm->fd, SNDRV_PCM_IOCTL_INFO, &info)) //get info
 		ioctl(pcm->fd, SNDRV_PCM_IOCTL_HW_PARAMS, &params) //将硬件参数参数写到设备节点中
@@ -357,7 +359,8 @@ static int snd_pcm_playback_open(struct inode *inode, struct file *file)
 // PcmTinyAlsaWrapper是我们对tinyalsa的封装
 vendor/harman/hardware/audio/audiohal/harman_audio_router/Modules/src/PcmTinyAlsaWrapper.cpp
 PcmTinyAlsaWrapper::writeFrame(AudioPort* port, PAF_AudioFrame* data)
-	external/tinyalsa/pcm.c
+	external/tinyalsa/pcm.c  //这个是原始的位置
+	vendor/qcom/opensource/tinyalsa/pcm.c  //我们的项目用的
 	pcm_mmap_write(mPcmHandle, static_cast<const void*>(pcmData), mAudioParam.convertFramesToBytes(period_size));
 	pcm_write(mPcmHandle, static_cast<const void*>(pcmData), mAudioParam.convertFramesToBytes(period_size));
 		ioctl(pcm->fd, SNDRV_PCM_IOCTL_WRITEI_FRAMES, &x)
@@ -369,11 +372,11 @@ PcmTinyAlsaWrapper::writeFrame(AudioPort* port, PAF_AudioFrame* data)
 					snd_pcm_lib_write(substream, xferi.buf, xferi.frames);
 						kernel/msm-5.4/sound/core/pcm_lib.c
 						__snd_pcm_lib_xfer(substream, (void __force *)buf, true, frames, false);
-							transfer = substream->ops->copy_kernel  //拷贝数据,将数据拷贝到dai FIFO？
+							transfer = substream->ops->copy_kernel  //拷贝数据
 							transfer = (pcm_transfer_f)substream->ops->copy_user;
-							// 这里到底是不是调用了msm_pcm_copy？ msm_pcm_copy中会调用q6asm_write往dsp写数据
+							// 这里应该是调用了msm_pcm_copy， msm_pcm_copy中会调用q6asm_write往dsp写数据
 							kernel/msm-5.4/sound/core/pcm_native.c
-							snd_pcm_start(substream);
+							snd_pcm_start(substream); //启动传输(只是在开始时,调用一次)
 								snd_pcm_action(&snd_pcm_action_start, substream, SNDRV_PCM_STATE_RUNNING);
 									snd_pcm_action_group(ops, substream, state, 1);
 									snd_pcm_action_single(ops, substream, state);
@@ -381,11 +384,11 @@ PcmTinyAlsaWrapper::writeFrame(AudioPort* port, PAF_AudioFrame* data)
 										res = ops->do_action(substream, state);
 										snd_pcm_do_start(struct snd_pcm_substream *substream, int state)
 											substream->ops->trigger(substream, SNDRV_PCM_TRIGGER_START); //触发数据拷贝
-											// 这里到底是不是调用了msm_pcm_trigger？
+											// 这里应该是调用了msm_pcm_trigger
 
 
 
-// 不确定substream->ops->copy_user调用的是不是如下函数  --TBD
+// substream->ops->copy_user应该是调用了如下函数  --TBD
 // 此函数是应该是发送音频数据
 static int msm_pcm_copy(struct snd_pcm_substream *substream, int a, unsigned long hwoff, void __user *buf, unsigned long fbytes)
 	ret = msm_pcm_capture_copy(substream, a, hwoff, buf, fbytes); //substream->stream == SNDRV_PCM_STREAM_CAPTURE
@@ -403,7 +406,7 @@ static int msm_pcm_copy(struct snd_pcm_substream *substream, int a, unsigned lon
 				ret = habmm_socket_send(hab_handle_tx, (void *)&apr_tx_buf, apr_send_len, 0);  //vm,qnx hypervisor
 
 
-// 不确定substream->ops->trigger调用的是不是如下函数  --TBD
+// substream->ops->trigger应该是调用了如下函数  --TBD
 // 此函数应该是发送操作码命令
 kernel/msm-5.4/techpack/audio/asoc/msm-pcm-q6-v2.c
 kernel/msm-5.4/techpack/audio/asoc/msm-pcm-voice-v2.c
@@ -411,7 +414,7 @@ kernel/msm-5.4/techpack/audio/asoc/msm-pcm-voip-v2.c
 kernel/msm-5.4/techpack/audio/asoc/msm-pcm-loopback-v2.c
 kernel/msm-5.4/techpack/audio/asoc/msm-pcm-q6-noirq.c
 static int msm_pcm_trigger(struct snd_pcm_substream *substream, int cmd)
-	kernel/msm-5.4/techpack/audio/dsp/q6asm.c    //项目用到的目录
+	kernel/msm-5.4/techpack/audio/dsp/q6asm.c    //这个应该是我们项目用到的
 	kernel/msm-5.4/sound/soc/qcom/qdsp6/q6asm.c  //这个应该是原始的目录
 	ret = q6asm_run_nowait(prtd->audio_client, 0, 0, 0);
 		kernel/msm-5.4/techpack/audio/dsp/q6asm.c
@@ -424,8 +427,7 @@ static int msm_pcm_trigger(struct snd_pcm_substream *substream, int cmd)
 
 
 
-// 不确定substream->ops->trigger调用的是不是如下函数  --TBD
-substream->ops->trigger(substream, SNDRV_PCM_TRIGGER_START);
+不清楚这个地方是在哪里调用的？   --TBD
 	dpcm_fe_dai_trigger(struct snd_pcm_substream *substream, int cmd)
 		dpcm_fe_dai_do_trigger(substream, cmd);
 			dpcm_dai_trigger_fe_be(substream, cmd, true);
@@ -435,7 +437,16 @@ substream->ops->trigger(substream, SNDRV_PCM_TRIGGER_START);
 					ret = snd_soc_dai_trigger(cpu_dai, substream, cmd);
 				ret = dpcm_be_dai_trigger(fe, substream->stream, cmd);
 										
-					
+
+
+// 80-na157-193_f_linux_android_audio_customization_and_debugging_guide.pdf
+// 6.1.3.2 Kernel logs	
+// 从kernel log 可知，函数执行顺序为
+msm_pcm_playback_prepare
+msm_pcm_trigger: Trigger start
+msm_pcm_playback_copy:writing 3840 bytes of buffer to dsp
+pcm_irq_pos = 3840 //每次写完都会增加一个period size的数据
+
 ```
 
 
@@ -462,6 +473,5 @@ static const struct snd_pcm_ops msm_pcm_ops = {
 
 
 
-
 ------------------------------------------------------------
-Generated with [Mybase Desktop 8.2 Beta-5](http://www.wjjsoft.com/mybase.html?ref=markdown_export)
+Generated with [Mybase Desktop 8.2 Beta-6](http://www.wjjsoft.com/mybase.html?ref=markdown_export)
