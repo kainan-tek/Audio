@@ -427,7 +427,7 @@ static int msm_pcm_trigger(struct snd_pcm_substream *substream, int cmd)
 
 
 
-不清楚这个地方是在哪里调用的？   --TBD
+不清楚这个地方是在哪里调用的,猜测可能是open过程？   --TBD
 	dpcm_fe_dai_trigger(struct snd_pcm_substream *substream, int cmd)
 		dpcm_fe_dai_do_trigger(substream, cmd);
 			dpcm_dai_trigger_fe_be(substream, cmd, true);
